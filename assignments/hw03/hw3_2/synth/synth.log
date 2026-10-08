@@ -1,0 +1,433 @@
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid this.
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version V-2023.12-SP5 for linux64 - Jul 16, 2024 
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+Current time:       Thu Oct  8 10:19:48 2026
+Hostname:           coe-ee-cad15.sjsuad.sjsu.edu
+CPU Model:          Intel(R) Core(TM) i7-10700 CPU @ 2.90GHz
+CPU Details:        Cores = 16 : Sockets = 1 : Cache Size = 16384 KB : Freq = 4.18 GHz
+OS:                 Linux 5.14.0-687.29.1.el9_8.x86_64
+RAM:                 15 GB (Free   3 GB)
+Swap:                 7 GB (Free   6 GB)
+Work Filesystem:    /home/015838732@SJSUAD.SJSU.EDU mounted to coe-ee-pool.sjsuad.sjsu.edu:/export/users/015838732
+Tmp Filesystem:     / mounted to /dev/mapper/rhel-root
+Work Disk:          5079 GB (Free 4755 GB)
+Tmp Disk:            69 GB (Free  55 GB)
+
+CPU Load: 0%, Ram Free: 3 GB, Swap Free: 6 GB, Work Disk Free: 4755 GB, Tmp Disk Free: 55 GB
+echo "********** CS147 Reading files begin ********************"
+********** CS147 Reading files begin ********************
+set my_verilog_files [list dff.v register.v regFile.v regFile_bypass.v  ]
+dff.v register.v regFile.v regFile_bypass.v
+set my_toplevel regFile_bypass
+regFile_bypass
+define_design_lib WORK -path ./WORK
+1
+analyze -f verilog $my_verilog_files
+Running PRESTO HDLC
+Compiling source file ./dff.v
+Warning:  ./dff.v:21: delays for continuous assignment are ignored. (VER-173)
+Compiling source file ./register.v
+Compiling source file ./regFile.v
+Compiling source file ./regFile_bypass.v
+Presto compilation completed successfully.
+Loading db file '/apps/cadence/gpdk/FreePDK45/osu_soc/lib/files/gscl45nm.db'
+1
+elaborate $my_toplevel -architecture verilog
+Loading db file '/apps/synopsys/dc_compiler_2023_V/syn/V-2023.12-SP5/libraries/syn/gtech.db'
+Loading db file '/apps/synopsys/dc_compiler_2023_V/syn/V-2023.12-SP5/libraries/syn/standard.sldb'
+  Loading link library 'gscl45nm'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully. (regFile_bypass)
+Elaborated 1 design.
+Current design is now 'regFile_bypass'.
+Information: Building the design 'regFile'. (HDL-193)
+Warning:  ./regFile.v:127: Comparison against '?', 'x', or 'z' values is always false. It may cause simulation/synthesis mismatch.  (ELAB-310)
+Warning:  ./regFile.v:127: Comparison against '?', 'x', or 'z' values is always false. It may cause simulation/synthesis mismatch.  (ELAB-310)
+Warning:  ./regFile.v:127: Comparison against '?', 'x', or 'z' values is always false. It may cause simulation/synthesis mismatch.  (ELAB-310)
+Warning:  ./regFile.v:127: Comparison against '?', 'x', or 'z' values is always false. It may cause simulation/synthesis mismatch.  (ELAB-310)
+Warning:  ./regFile.v:127: Comparison against '?', 'x', or 'z' values is always false. It may cause simulation/synthesis mismatch.  (ELAB-310)
+Warning:  ./regFile.v:127: Comparison against '?', 'x', or 'z' values is always false. It may cause simulation/synthesis mismatch.  (ELAB-310)
+Warning:  ./regFile.v:127: Comparison against '?', 'x', or 'z' values is always false. It may cause simulation/synthesis mismatch.  (ELAB-310)
+Presto compilation completed successfully. (regFile)
+Information: Building the design 'dff'. (HDL-193)
+
+Inferred memory devices in process
+	in routine dff line 23 in file
+		'./dff.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      state_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (dff)
+Information: Building the design 'register' instantiated from design 'regFile' with
+	the parameters "WIDTH=16". (HDL-193)
+Warning:  ./register.v:44: Comparison against '?', 'x', or 'z' values is always false. It may cause simulation/synthesis mismatch.  (ELAB-310)
+Warning:  ./register.v:44: Comparison against '?', 'x', or 'z' values is always false. It may cause simulation/synthesis mismatch.  (ELAB-310)
+Warning:  ./register.v:44: Comparison against '?', 'x', or 'z' values is always false. It may cause simulation/synthesis mismatch.  (ELAB-310)
+Warning:  ./register.v:44: Comparison against '?', 'x', or 'z' values is always false. It may cause simulation/synthesis mismatch.  (ELAB-310)
+Presto compilation completed successfully. (register_WIDTH16)
+1
+echo "********** CS147 Reading files end ********************"
+********** CS147 Reading files end ********************
+current_design $my_toplevel
+Current design is 'regFile_bypass'.
+{regFile_bypass}
+#/* The name of the clock pin. If no clock-pin     */
+#/* exists, pick anything                          */
+set my_clock_pin clk
+clk
+#/* Target frequency in MHz for optimization       */
+set my_clk_freq_MHz 1000
+1000
+#/* Delay of input signals (Clock-to-Q, Package etc.)  */
+set my_input_delay_ns 0.1
+0.1
+#/* Reserved time for output signals (Holdtime etc.)   */
+set my_output_delay_ns 0.1
+0.1
+#/**************************************************/
+#/* No modifications needed below                  */
+#/**************************************************/
+set verilogout_show_unconnected_pins "true"
+true
+# analyze -f verilog $my_verilog_files
+# elaborate $my_toplevel -architecture verilog
+# current_design $my_toplevel
+report_hierarchy 
+ 
+****************************************
+Report : hierarchy
+Design : regFile_bypass
+Version: V-2023.12-SP5
+Date   : Thu Oct  8 10:19:49 2026
+****************************************
+
+Information: This design contains unmapped logic. (RPT-7)
+
+regFile_bypass
+    GTECH_AND2                               gtech
+    GTECH_BUF                                gtech
+    GTECH_NOT                                gtech
+    regFile
+        GTECH_AND2                           gtech
+        GTECH_BUF                            gtech
+        GTECH_NOT                            gtech
+        GTECH_OR2                            gtech
+        dff
+            GTECH_BUF                        gtech
+            GTECH_NOT                        gtech
+        register_WIDTH16
+            GTECH_BUF                        gtech
+            GTECH_NOT                        gtech
+            dff
+                ...
+1
+link
+
+  Linking design 'regFile_bypass'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  gscl45nm (library)          /apps/cadence/gpdk/FreePDK45/osu_soc/lib/files/gscl45nm.db
+
+1
+uniquify
+Information: Uniquified 129 instances of design 'dff'. (OPT-1056)
+Information: Uniquified 8 instances of design 'register_WIDTH16'. (OPT-1056)
+1
+set my_period [expr 1000 / $my_clk_freq_MHz]
+1
+set find_clock [ find port [list $my_clock_pin] ]
+{clk}
+if {  $find_clock != [list] } {
+   set clk_name $my_clock_pin
+   create_clock -period $my_period $clk_name
+} else {
+   set clk_name vclk
+   create_clock -period $my_period -name $clk_name
+} 
+1
+set_driving_cell  -lib_cell INVX1  [all_inputs]
+Warning: Design rule attributes from the driving cell will be set on the port 'clk'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'rst'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'read1RegSel<2>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'read1RegSel<1>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'read1RegSel<0>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'read2RegSel<2>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'read2RegSel<1>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'read2RegSel<0>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeRegSel<2>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeRegSel<1>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeRegSel<0>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeData<15>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeData<14>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeData<13>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeData<12>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeData<11>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeData<10>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeData<9>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeData<8>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeData<7>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeData<6>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeData<5>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeData<4>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeData<3>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeData<2>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeData<1>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeData<0>'. (UID-401)
+Warning: Design rule attributes from the driving cell will be set on the port 'writeEn'. (UID-401)
+1
+set_input_delay $my_input_delay_ns -clock $clk_name [remove_from_collection [all_inputs] $my_clock_pin]
+1
+set_output_delay $my_output_delay_ns -clock $clk_name [all_outputs]
+1
+compile 
+CPU Load: 0%, Ram Free: 3 GB, Swap Free: 6 GB, Work Disk Free: 4755 GB, Tmp Disk Free: 55 GB
+Warning: Setting attribute 'fix_multiple_port_nets' on design 'regFile_bypass'. (UIO-59)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | V-2023.12-DWBB_202312.5 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler                                                                   |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 822                                    |
+| Number of User Hierarchies                              | 138                                    |
+| Sequential Cell Count                                   | 129                                    |
+| Macro Count                                             | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 2                                      |
+| Number of VT Class                                      | 0                                      |
+| Number of Clocks                                        | 1                                      |
+| Number of Dont Touch Cells                              | 294                                    |
+| Number of Dont Touch Nets                               | 0                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with UPF Data                                    | false                                  |
+====================================================================================================
+
+Information: There are 9 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'dff_0'
+  Processing 'register_WIDTH16_0'
+  Processing 'regFile'
+  Processing 'regFile_bypass'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:00    3358.8      0.00       0.0     751.8                          
+    0:00:00    3358.8      0.00       0.0     751.8                          
+    0:00:00    3358.8      0.00       0.0     751.8                          
+    0:00:00    3358.8      0.00       0.0     751.8                          
+    0:00:00    3358.8      0.00       0.0     751.8                          
+    0:00:00    3148.1      0.00       0.0     619.0                          
+    0:00:00    3148.1      0.00       0.0     619.0                          
+    0:00:00    3148.1      0.00       0.0     619.0                          
+    0:00:00    3148.1      0.00       0.0     619.0                          
+    0:00:00    3148.1      0.00       0.0     619.0                          
+    0:00:01    3181.4      0.00       0.0     598.7                          
+    0:00:01    3213.8      0.00       0.0     586.8                          
+    0:00:01    3243.8      0.00       0.0     576.6                          
+    0:00:01    3273.8      0.00       0.0     566.4                          
+    0:00:01    3303.9      0.00       0.0     556.2                          
+    0:00:01    3333.9      0.00       0.0     546.0                          
+    0:00:01    3363.9      0.00       0.0     535.8                          
+    0:00:01    3394.0      0.00       0.0     525.5                          
+    0:00:01    3424.0      0.00       0.0     515.3                          
+    0:00:01    3454.0      0.00       0.0     505.1                          
+    0:00:01    3484.1      0.00       0.0     494.9                          
+    0:00:01    3514.1      0.00       0.0     484.7                          
+    0:00:01    3544.2      0.00       0.0     474.5                          
+    0:00:01    3574.2      0.00       0.0     464.3                          
+    0:00:01    3604.2      0.00       0.0     454.1                          
+    0:00:01    3634.3      0.00       0.0     443.8                          
+    0:00:01    3634.3      0.00       0.0     443.8                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01    3634.3      0.00       0.0     443.8                          
+    0:00:01    3634.3      0.00       0.0     443.8                          
+    0:00:01    3634.3      0.00       0.0     443.8                          
+    0:00:01    3634.3      0.00       0.0     443.8                          
+    0:00:01    3634.3      0.00       0.0     443.8                          
+
+
+  Beginning Design Rule Fixing  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:01    3634.3      0.00       0.0     443.8                          
+    0:00:01    3763.3      0.00       0.0     421.3 rf0/n150                 
+    0:00:01    3892.4      0.00       0.0     402.3 rf0/n114                 
+    0:00:02    4031.8      0.00       0.0     387.2 rf0/read2Data<12>        
+    0:00:02    4172.1      0.00       0.0     371.7 rf0/n70                  
+    0:00:02    4255.1      0.00       0.0     329.4 rf0/n143                 
+    0:00:02    4353.7      0.00       0.0     321.5 n22                      
+    0:00:02    4367.8      0.00       0.0     321.4 rf0/read2Data<10>        
+    0:00:02    4367.3      0.00       0.0     321.4                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02    4367.3      0.00       0.0     321.4                          
+    0:00:02    4367.3      0.00       0.0     321.4                          
+    0:00:02    4270.2      0.00       0.0     321.4                          
+    0:00:02    4175.8      0.00       0.0     321.4                          
+    0:00:02    4143.4      0.00       0.0     321.4                          
+    0:00:02    4070.2      0.00       0.0     321.4                          
+    0:00:02    4070.2      0.00       0.0     321.4                          
+    0:00:02    4070.2      0.00       0.0     321.4                          
+    0:00:02    4070.2      0.00       0.0     321.4                          
+    0:00:02    4062.3      0.00       0.0     321.4                          
+    0:00:02    4062.3      0.00       0.0     321.4                          
+    0:00:02    4062.3      0.00       0.0     321.4                          
+    0:00:02    4062.3      0.00       0.0     321.4                          
+    0:00:02    4062.3      0.00       0.0     321.4                          
+    0:00:02    4062.3      0.00       0.0     321.4                          
+    0:00:02    4062.3      0.00       0.0     321.4                          
+Loading db file '/apps/cadence/gpdk/FreePDK45/osu_soc/lib/files/gscl45nm.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+CPU Load: 1%, Ram Free: 3 GB, Swap Free: 6 GB, Work Disk Free: 4755 GB, Tmp Disk Free: 55 GB
+Information: Total number of MV cells in the design.
+----------------------------------------------------------------------------------------------------
+ MV Cells                                           Total Number                                   
+----------------------------------------------------------------------------------------------------
+ Level Shifter:                                     0                                             
+ Enable Level Shifter:                              0                                             
+ Isolation Cell:                                    0                                             
+ Retention Cell:                                    0                                             
+ Retention Clamp Cell:                              0                                             
+ Switch Cell:                                       0                                             
+ Always-On Cell:                                    0                                             
+ Repeater Cell:                                     0                                             
+
+----------------------------------------------------------------------------------------------------
+Unmapped MV Cells 
+----------------------------------------------------------------------------------------------------
+0 Isolation Cells are unmapped 
+0 Retention Clamp Cells are unmapped 
+----------------------------------------------------------------------------------------------------
+1
+check_design -summary
+ 
+****************************************
+check_design summary:
+Version:     V-2023.12-SP5
+Date:        Thu Oct  8 10:19:51 2026
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     10
+    Constant outputs (LINT-52)                                     10
+
+Cells                                                               1
+    Connected to power or ground (LINT-32)                          1
+
+Nets                                                                9
+    Unloaded nets (LINT-2)                                          9
+--------------------------------------------------------------------------------
+
+Information: Use the 'check_design' command for 
+	 more information about warnings. (LINT-98)
+
+1
+set filename [format "%s%s"  $my_toplevel ".syn.v"]
+regFile_bypass.syn.v
+write -hierarchy -f verilog $my_toplevel -output synth/$filename
+Writing verilog file '/home/015838732@SJSUAD.SJSU.EDU/code/CS_147_Handouts/assignments/hw03/hw3_2/synth/regFile_bypass.syn.v'.
+Warning: Bus naming style currently specified as %s<%d>, verilog syntax requires bus naming style to be "[]".  (VO-13)
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+set filename [format "%s%s"  $my_toplevel ".ddc"]
+regFile_bypass.ddc
+write -hierarchy -format ddc -output synth/$filename
+Writing ddc file 'synth/regFile_bypass.ddc'.
+1
+report_hierarchy > synth/hierarchy.txt
+report_reference > synth/reference_report.txt
+report_area > synth/area_report.txt
+report_cell > synth/cell_report.txt
+report_timing -max_paths 20 > synth/timing_report.txt
+report_power > synth/power_report.txt
+quit
+
+Memory usage for this session 113 Mbytes.
+Memory usage for this session including child processes 113 Mbytes.
+CPU usage for this session 4 seconds ( 0.00 hours ).
+Elapsed time for this session 6 seconds ( 0.00 hours ).
+
+Thank you...
