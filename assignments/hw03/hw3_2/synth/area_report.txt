@@ -1,0 +1,31 @@
+ 
+****************************************
+Report : area
+Design : regFile_bypass
+Version: V-2023.12-SP5
+Date   : Thu Oct  8 10:19:51 2026
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    gscl45nm (File: /apps/cadence/gpdk/FreePDK45/osu_soc/lib/files/gscl45nm.db)
+
+Number of ports:                          926
+Number of nets:                          2383
+Number of cells:                         1637
+Number of combinational cells:           1359
+Number of sequential cells:               129
+Number of macros/black boxes:               0
+Number of buf/inv:                        809
+Number of references:                       9
+
+Combinational area:               3033.085834
+Buf/Inv area:                     1464.685261
+Noncombinational area:            1029.174877
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (No wire load specified)
+
+Total cell area:                  4062.260711
+Total area:                 undefined
+1
