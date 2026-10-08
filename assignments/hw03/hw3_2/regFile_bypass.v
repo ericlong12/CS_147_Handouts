@@ -21,6 +21,34 @@ module regFile_bypass (
    output [15:0] read2Data;
    output        err;
 
-   /* YOUR CODE HERE */
+
+
+   wire [15:0] rfRead1Data;
+   wire [15:0] rfRead2Data;
+   wire        rfErr;
+
+   regFile rf0(
+       .read1Data   (rfRead1Data),
+       .read2Data   (rfRead2Data),
+       .err         (rfErr),
+       .clk         (clk),
+       .rst         (rst),
+       .read1RegSel (read1RegSel),
+       .read2RegSel (read2RegSel),
+       .writeRegSel (writeRegSel),
+       .writeData   (writeData),
+       .writeEn     (writeEn)
+   );
+
+   assign read1Data = (writeEn & ~rst &
+                       (read1RegSel == writeRegSel))
+                       ? writeData : rfRead1Data;
+
+   assign read2Data = (writeEn & ~rst &
+                       (read2RegSel == writeRegSel))
+                       ? writeData : rfRead2Data;
+
+   assign err = rfErr;
+
 
 endmodule
